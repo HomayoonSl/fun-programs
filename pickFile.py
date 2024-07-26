@@ -17,7 +17,7 @@ while(Picked == False):
         watched_content = list(line.strip() for line in watched)
         #print(idontwant_content)
         if movie_name in idontwant_content or watched_content:
-            print("first")
+            #print("first")
             Picked = False
         else:
             print(f"Do you want to watch {movie_name}? [y/n]")
