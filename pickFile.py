@@ -12,10 +12,10 @@ Picked = False
 while(Picked == False):
     with open("IdontWant.txt", "r+") as idw, open("Watched.txt", "r+") as watched:
         movie_name = random.choice(movies_list)
-        print(movie_name)
+        #print(movie_name)
         idontwant_content = list(line.strip() for line in idw)
         watched_content = list(line.strip() for line in watched)
-        print(idontwant_content)
+        #print(idontwant_content)
         if movie_name in idontwant_content or watched_content:
             print("first")
             Picked = False
