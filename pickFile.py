@@ -10,15 +10,23 @@ movies_list = os.\
 #print(random.choice(movies_list))
 Picked = False
 while(Picked == False):
-    movie_name = random.choice(movies_list)
-    #print(movie_name)
-    with open("IdontWant.txt", "r") as idw, open("Watched.txt", "r") as watched:
-        idontwant_content = set(line.strip() for line in idw)
-        watched_content = set(line.strip() for line in watched)
-    if movie_name in idontwant_content or watched_content:
-        Picked = False
-    else:
+    with open("IdontWant.txt", "r+") as idw, open("Watched.txt", "r+") as watched:
+        movie_name = random.choice(movies_list)
         print(movie_name)
-        Picked = True
+        idontwant_content = list(line.strip() for line in idw)
+        watched_content = list(line.strip() for line in watched)
+        print(idontwant_content)
+        if movie_name in idontwant_content or watched_content:
+            print("first")
+            Picked = False
+        else:
+            print(f"Do you want to watch {movie_name}? [y/n]")
+            ans = input()
+            if ans == "y":
+                watched.write(movie_name + '\n')
+            else:
+                idw.write(movie_name + '\n')
+
+            Picked = True
 
 
