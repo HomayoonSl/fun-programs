@@ -1,12 +1,14 @@
 import os, random
 
-if os.path.exists("IdontWant.txt") is False:
+try:
     open("IdontWant.txt", "x")
-if os.path.exists("Watched.txt") is False:
     open("Watched.txt", "x")
+    open("allMovies.txt", "x")
+except:
+    pass
 
 movies_list = os.\
-  popen("ls").read().split("\n")
+  popen("ls -I \"*.txt\"").read().split("\n")
 #print(random.choice(movies_list))
 Picked = False
 while(Picked == False):
